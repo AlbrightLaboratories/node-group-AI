@@ -1,6 +1,6 @@
 {
   "project": "node-group-AI Waitlist Form",
-  "branchName": "hawaiideveloper/waitlist-form-redis",
+  "branchName": "main",
   "description": "Static site waitlist form that submits to Redis, calculates network valuation, and reveals valuation only to users committing >50GB storage",
   "priorLessonsConsulted": [
     {
@@ -26,16 +26,20 @@
         "AC2 — Form validates email format before submission",
         "AC3 — Form submits via POST to Cloudflare Worker endpoint",
         "AC4 — Worker validates input and rejects malformed requests with 400 status",
-        "AC5 — Worker stores user record in Redis hash waitlist:user:{email}",
-        "AC6 — Worker increments stats in Redis hash waitlist:stats (total_users, total_storage_gb, total_compute_tflops)",
+        "AC5 — Worker stores user record in Redis hash waitlist:user:{email} [BLOCKED: awaiting Redis secrets]",
+        "AC6 — Worker increments stats in Redis hash waitlist:stats [BLOCKED: awaiting Redis secrets]",
         "Typecheck passes",
         "All validators pass"
       ],
       "priority": 1,
       "passes": false,
-      "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "notes": "AC1-4, typecheck, validators complete. AC5-6 blocked on Redis secrets.",
+      "iterationCount": 1,
+      "validationProof": {
+        "commit": "f057d8c",
+        "testsPassing": 53,
+        "workerDeployed": "https://node-group-ai-form-handler.hawaiideveloper.workers.dev"
+      }
     },
     {
       "id": "US-002",
@@ -43,16 +47,19 @@
       "description": "As the network operator, I want the system to calculate network valuation based on total committed resources so that I can track growth",
       "acceptanceCriteria": [
         "AC1 — Valuation formula: (total_storage_gb * 0.10) + (total_compute_tflops * 50) + (user_count * 100)",
-        "AC2 — Valuation stored in Redis key waitlist:valuation after each signup",
+        "AC2 — Valuation stored in Redis key waitlist:valuation after each signup [BLOCKED: awaiting Redis secrets]",
         "AC3 — Valuation formatted as $X.XM or $X.XB for display",
         "Typecheck passes",
         "All validators pass"
       ],
       "priority": 1,
       "passes": false,
-      "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "notes": "AC1, AC3, typecheck, validators complete. AC2 blocked on Redis secrets.",
+      "iterationCount": 1,
+      "validationProof": {
+        "commit": "f057d8c",
+        "testFile": "test/valuation.test.ts"
+      }
     },
     {
       "id": "US-003",
@@ -67,10 +74,13 @@
         "All validators pass"
       ],
       "priority": 2,
-      "passes": false,
-      "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "passes": true,
+      "notes": "All ACs complete and tested",
+      "iterationCount": 1,
+      "validationProof": {
+        "commit": "f057d8c",
+        "testFile": "test/conditional-display.test.ts"
+      }
     },
     {
       "id": "US-004",
@@ -85,19 +95,30 @@
         "All validators pass"
       ],
       "priority": 2,
-      "passes": false,
-      "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "passes": true,
+      "notes": "All ACs complete and tested",
+      "iterationCount": 1,
+      "validationProof": {
+        "commit": "f057d8c",
+        "testFile": "test/security.test.ts"
+      }
     }
   ],
   "deliveryQuestions": {
-    "committedToRepo": false,
-    "pushedToRepo": false,
+    "committedToRepo": true,
+    "pushedToRepo": true,
     "rollingRestartDone": false,
     "survivesPowerInterruption": false,
     "allApisTested": false,
-    "githubIssueUpdated": false,
-    "anythingMissed": false
-  }
+    "githubIssueUpdated": true,
+    "anythingMissed": true
+  },
+  "blockers": [
+    {
+      "id": "BLOCKER-001",
+      "description": "Redis secrets not configured",
+      "resolution": "Run: wrangler secret put UPSTASH_REDIS_REST_URL && wrangler secret put UPSTASH_REDIS_REST_TOKEN",
+      "blockedACs": ["US-001 AC5", "US-001 AC6", "US-002 AC2"]
+    }
+  ]
 }
