@@ -43,8 +43,7 @@ export interface SubmissionResponse {
 }
 
 export interface Env {
-  UPSTASH_REDIS_REST_URL: string;
-  UPSTASH_REDIS_REST_TOKEN: string;
+  WAITLIST_KV: KVNamespace;
   ALLOWED_ORIGIN: string;
   RATE_LIMIT_MAX: number;
   RATE_LIMIT_WINDOW_SECONDS: number;

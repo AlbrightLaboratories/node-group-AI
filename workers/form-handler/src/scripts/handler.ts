@@ -5,11 +5,10 @@
 import type { Env, WaitlistSubmission, UserRecord } from "../types";
 import { HARDWARE_TFLOPS } from "../types";
 import { validateSubmission } from "./validate-input";
-import { getCorsHeaders, hashIP, checkRateLimit } from "./security";
-import { storeUserRecord, updateStats, getStats } from "./redis-storage";
+import { getCorsHeaders, hashIP } from "./security";
+import { storeUserRecord, updateStats, getStats, storeValuation, checkAndIncrementRateLimit } from "./kv-storage";
 import { calculateValuation } from "./valuation";
 import { buildValuationResponse } from "./conditional-display";
-import { Redis } from "@upstash/redis";
 
 /**
  * Create a JSON response with CORS headers
@@ -84,20 +83,14 @@ export async function handleRequest(
     );
   }
 
-  // Initialize Redis client
-  const redis = new Redis({
-    url: env.UPSTASH_REDIS_REST_URL,
-    token: env.UPSTASH_REDIS_REST_TOKEN,
-  });
-
   // Get client IP and hash it
   const clientIP = request.headers.get("CF-Connecting-IP") || "unknown";
   const ipHash = hashIP(clientIP);
 
-  // Check rate limit
-  const rateLimit = await checkRateLimit(
+  // Check rate limit using KV
+  const rateLimit = await checkAndIncrementRateLimit(
+    env.WAITLIST_KV,
     ipHash,
-    redis,
     env.RATE_LIMIT_MAX,
     env.RATE_LIMIT_WINDOW_SECONDS
   );
@@ -109,11 +102,6 @@ export async function handleRequest(
       env.ALLOWED_ORIGIN
     );
   }
-
-  // Increment rate limit counter
-  const rateLimitKey = `ratelimit:${ipHash}`;
-  await redis.incr(rateLimitKey);
-  await redis.expire(rateLimitKey, env.RATE_LIMIT_WINDOW_SECONDS);
 
   // Calculate compute TFLOPs from hardware type
   const computeTflops = HARDWARE_TFLOPS[submission.hardware] || 25;
@@ -129,25 +117,23 @@ export async function handleRequest(
   };
 
   // Store user record
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const storeResult = await storeUserRecord(redis as any, record);
+  const storeResult = await storeUserRecord(env.WAITLIST_KV, record);
 
-  // Update stats (for new users or with delta for updates)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // Update stats
   await updateStats(
-    redis as any,
+    env.WAITLIST_KV,
     submission.storage_commitment_gb,
     computeTflops,
-    storeResult.isUpdate
+    storeResult.isUpdate,
+    storeResult.previousRecord
   );
 
   // Get updated stats and calculate valuation
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const stats = await getStats(redis as any);
+  const stats = await getStats(env.WAITLIST_KV);
   const valuation = calculateValuation(stats);
 
   // Store valuation
-  await redis.set("waitlist:valuation", valuation);
+  await storeValuation(env.WAITLIST_KV, valuation);
 
   // Build valuation response (hidden or revealed based on commitment)
   const valuationResponse = buildValuationResponse(

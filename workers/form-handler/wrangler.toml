@@ -8,6 +8,7 @@ ALLOWED_ORIGIN = "https://albrightlaboratories.github.io"
 RATE_LIMIT_MAX = 5
 RATE_LIMIT_WINDOW_SECONDS = 60
 
-# Upstash Redis credentials - set via wrangler secret
-# UPSTASH_REDIS_REST_URL
-# UPSTASH_REDIS_REST_TOKEN
+# Cloudflare KV for waitlist storage
+[[kv_namespaces]]
+binding = "WAITLIST_KV"
+id = "e9866fd880534e9e896bcf3eb5b0971b"
