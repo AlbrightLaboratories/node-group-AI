@@ -36,7 +36,7 @@
       "notes": "All ACs complete. Switched from Redis to Cloudflare KV for built-in storage.",
       "iterationCount": 2,
       "validationProof": {
-        "commit": "pending",
+        "commit": "4127cb7",
         "testsPassing": 56,
         "workerDeployed": "https://node-group-ai-form-handler.hawaiideveloper.workers.dev",
         "e2eVerified": "curl tests show user storage and stats accumulation"
@@ -58,7 +58,7 @@
       "notes": "All ACs complete. Valuation verified: $10.9K for 4 test users matches expected calculation.",
       "iterationCount": 2,
       "validationProof": {
-        "commit": "pending",
+        "commit": "4127cb7",
         "testFile": "test/valuation.test.ts",
         "e2eVerified": "Valuation $10,948 = (480GB * $0.10) + (210 TFLOPS * $50) + (4 users * $100)"
       }
@@ -107,12 +107,12 @@
     }
   ],
   "deliveryQuestions": {
-    "committedToRepo": false,
-    "pushedToRepo": false,
+    "committedToRepo": true,
+    "pushedToRepo": true,
     "rollingRestartDone": true,
     "survivesPowerInterruption": true,
     "allApisTested": true,
-    "githubIssueUpdated": false,
+    "githubIssueUpdated": true,
     "anythingMissed": false
   },
   "blockers": []
