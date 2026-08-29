@@ -1,0 +1,103 @@
+{
+  "project": "node-group-AI Waitlist Form",
+  "branchName": "hawaiideveloper/waitlist-form-redis",
+  "description": "Static site waitlist form that submits to Redis, calculates network valuation, and reveals valuation only to users committing >50GB storage",
+  "priorLessonsConsulted": [
+    {
+      "lessonId": "cloudflare-workers-redis",
+      "summary": "Cloudflare Workers can connect to Redis via Upstash REST API or TCP with connect() for low-latency access",
+      "source": "local",
+      "appliedAs": "design_constraint"
+    },
+    {
+      "lessonId": "form-validation-edge",
+      "summary": "Form validation should happen at the edge (Worker) to prevent bad data and reduce origin load",
+      "source": "local",
+      "appliedAs": "acceptance_criterion"
+    }
+  ],
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Waitlist signup with storage commitment",
+      "description": "As a potential contributor, I want to sign up for the waitlist with my email, hardware type, and storage commitment so that I can be notified when the network launches",
+      "acceptanceCriteria": [
+        "AC1 — Form displays email field, hardware dropdown, and storage commitment slider (1GB-1TB)",
+        "AC2 — Form validates email format before submission",
+        "AC3 — Form submits via POST to Cloudflare Worker endpoint",
+        "AC4 — Worker validates input and rejects malformed requests with 400 status",
+        "AC5 — Worker stores user record in Redis hash waitlist:user:{email}",
+        "AC6 — Worker increments stats in Redis hash waitlist:stats (total_users, total_storage_gb, total_compute_tflops)",
+        "Typecheck passes",
+        "All validators pass"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-002",
+      "title": "Network valuation calculation",
+      "description": "As the network operator, I want the system to calculate network valuation based on total committed resources so that I can track growth",
+      "acceptanceCriteria": [
+        "AC1 — Valuation formula: (total_storage_gb * 0.10) + (total_compute_tflops * 50) + (user_count * 100)",
+        "AC2 — Valuation stored in Redis key waitlist:valuation after each signup",
+        "AC3 — Valuation formatted as $X.XM or $X.XB for display",
+        "Typecheck passes",
+        "All validators pass"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-003",
+      "title": "Conditional valuation display",
+      "description": "As a high-commitment contributor (>50GB), I want to see the network valuation after signup so that I understand the network's worth",
+      "acceptanceCriteria": [
+        "AC1 — Worker returns valuation in response ONLY if storage_commitment_gb > 50",
+        "AC2 — Worker returns 'hidden' status for users with storage_commitment_gb <= 50",
+        "AC3 — Site displays valuation with animation when returned",
+        "AC4 — Site displays 'Commit 50GB+ to see network value' message for low-commitment users",
+        "Typecheck passes",
+        "All validators pass"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-004",
+      "title": "Security and rate limiting",
+      "description": "As the network operator, I want the form to be protected against abuse so that the system remains stable",
+      "acceptanceCriteria": [
+        "AC1 — Worker has CORS configured for site domain only",
+        "AC2 — Worker rate limits to 5 submissions per minute per IP",
+        "AC3 — Worker hashes IP for duplicate detection without storing raw IP",
+        "AC4 — Duplicate email submissions update existing record rather than creating new",
+        "Typecheck passes",
+        "All validators pass"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    }
+  ],
+  "deliveryQuestions": {
+    "committedToRepo": false,
+    "pushedToRepo": false,
+    "rollingRestartDone": false,
+    "survivesPowerInterruption": false,
+    "allApisTested": false,
+    "githubIssueUpdated": false,
+    "anythingMissed": false
+  }
+}

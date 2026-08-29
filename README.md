@@ -3,271 +3,193 @@
 
 # node-group-AI
 
-A decentralized GPU compute network that enables users to pool their AI hardware into a collective intelligence mesh. Connect your GPU, join the network, and gain access to distributed AI capabilities far beyond what any single system can provide.
+A decentralized GPU compute network that enables millions of users to pool their AI hardware into a collective intelligence mesh. Join via web form, contribute your GPU, and access distributed AI capabilities far beyond any single system.
 
-## Overview
+## Join the Network
 
-node-group-AI creates a peer-to-peer network where participants contribute their GPU resources to a shared compute pool. Each node maintains sovereignty over its own system while participating in a federated "master brain" that can tackle any computational task — from hardware diagnostics to software development, database operations, and AI inference.
+**No CLI required. Just fill out a form.**
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        node-group-AI Mesh                           │
-│                                                                     │
-│   ┌─────────┐     ┌─────────┐     ┌─────────┐     ┌─────────┐      │
-│   │  Node A │◄───►│  Node B │◄───►│  Node C │◄───►│  Node D │      │
-│   │  RTX 4090│     │  A100   │     │  H100   │     │  DGX    │      │
-│   └────┬────┘     └────┬────┘     └────┬────┘     └────┬────┘      │
-│        │               │               │               │           │
-│        └───────────────┴───────┬───────┴───────────────┘           │
-│                                │                                    │
-│                    ┌───────────▼───────────┐                       │
-│                    │    Master Brain       │                       │
-│                    │  (Distributed LLM)    │                       │
-│                    └───────────────────────┘                       │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                    join.node-group.ai                        │
+│                                                              │
+│  ┌─────────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐     │
+│  │ Hardware│──►│Use Cases│──►│ Access  │──►│ Install │     │
+│  │  (30s)  │   │  (30s)  │   │  (30s)  │   │  (auto) │     │
+│  └─────────┘   └─────────┘   └─────────┘   └─────────┘     │
+│                                                              │
+│  ◄───────────── Under 5 minutes ────────────────►           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+1. **Go to** [join.node-group.ai](https://join.node-group.ai)
+2. **Answer 3 questions** — What hardware? What use cases? Who can access?
+3. **Run the installer** — One command, pre-configured for your setup
+4. **You're live** — Dashboard shows status, credits, and tasks
+
+That's it. AI prompts, models, and network config are pre-configured. You can start using the network immediately.
+
+## What You Can Do
+
+### As a Contributor (Have GPU)
+Earn credits by sharing idle GPU cycles. Your hardware helps power the collective while you're not using it.
+
+### As a Consumer (Need AI)
+Spend credits to run AI workloads across the distributed network — inference, embeddings, training, and more.
+
+### Pre-configured AI Templates
+No prompt engineering required. Select a use case, get a working AI assistant:
+
+| Template | What It Does |
+|----------|--------------|
+| **Code Assistant** | Write, debug, and explain code |
+| **Data Analyst** | Analyze datasets, create visualizations |
+| **Research Helper** | Summarize papers, answer technical questions |
+| **Creative Writing** | Stories, scripts, content |
+| **Custom** | Bring your own system prompt |
+
+## Network Overview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        node-group-AI Mesh                        │
+│                                                                  │
+│   10M+ Nodes    ───►    Hierarchical DHT    ───►    Your Task   │
+│   Global Pool          O(log n) Routing           < 100ms p99   │
+│                                                                  │
+│   ┌─────────┐     ┌─────────┐     ┌─────────┐     ┌─────────┐  │
+│   │Consumer │     │ Gaming  │     │ Server  │     │ Data    │  │
+│   │ GPUs    │     │  PCs    │     │ Racks   │     │ Centers │  │
+│   └─────────┘     └─────────┘     └─────────┘     └─────────┘  │
+│        │               │               │               │        │
+│        └───────────────┴───────┬───────┴───────────────┘        │
+│                                │                                 │
+│                    ┌───────────▼───────────┐                    │
+│                    │    Distributed AI     │                    │
+│                    │  Inference, Training  │                    │
+│                    │  Embeddings, Compute  │                    │
+│                    └───────────────────────┘                    │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ## Key Features
 
-### Distributed GPU Pooling
-- **Tensor parallelism** across nodes for large model inference
-- **Pipeline parallelism** for high-throughput batch processing
-- **Dynamic load balancing** based on node availability and capability
-- **Heterogeneous hardware support** — mix RTX, Tesla, A100, H100, and consumer GPUs
+| Feature | Description |
+|---------|-------------|
+| **Form-based onboarding** | Join in 5 minutes, no CLI required |
+| **Pre-configured AI** | Ready-to-use prompts and models |
+| **10M+ node scale** | Hierarchical DHT for massive networks |
+| **Credit economy** | Earn by contributing, spend on AI tasks |
+| **Security-first** | mTLS, sandboxed execution, per-node ACLs |
+| **Multi-GPU support** | RTX, A100, H100, any CUDA-capable GPU |
 
-### Security-First Architecture
-- **IP-gated access control** — each node owner controls who can access their resources
-- **Zero-trust networking** — all inter-node communication is encrypted and authenticated
-- **Sandboxed execution** — tasks run in isolated containers with no host access
-- **Audit logging** — complete visibility into what tasks ran on your hardware
-
-### Capabilities
-Once connected, the collective network can perform:
-
-| Domain | Capabilities |
-|--------|-------------|
-| **Hardware** | Remote diagnostics, GPU monitoring, thermal management, driver updates |
-| **Software** | Code generation, compilation, testing, deployment automation |
-| **Database** | Distributed queries, schema migrations, backup/restore, replication |
-| **AI/ML** | Model training, fine-tuning, inference, embedding generation, RAG pipelines |
-| **General** | Any compute task that can be containerized and parallelized |
-
-## Quick Start
-
-### 1. Install the node agent
-
-```bash
-curl -fsSL https://node-group.ai/install.sh | bash
-```
-
-### 2. Initialize your node
-
-```bash
-node-group-ai init --gpu auto-detect
-```
-
-### 3. Configure access gates
-
-```bash
-# Allow specific IPs
-node-group-ai access allow 192.168.1.0/24
-
-# Or join the public mesh (opt-in)
-node-group-ai mesh join --public
-```
-
-### 4. Connect to the network
-
-```bash
-node-group-ai connect
-```
-
-Your GPU is now part of the collective. You can submit tasks and your idle cycles contribute to others' workloads.
-
-## Architecture
-
-### Node Types
-
-| Type | Description | Requirements |
-|------|-------------|--------------|
-| **Contributor** | Donates GPU cycles, earns compute credits | Any CUDA-capable GPU |
-| **Consumer** | Uses network resources, spends credits | Network connection |
-| **Hybrid** | Both contributes and consumes (default) | Any CUDA-capable GPU |
-| **Orchestrator** | Routes tasks, manages mesh topology | 8+ cores, 32GB RAM |
-
-### Network Topology
-
-```
-                    ┌──────────────────┐
-                    │   Orchestrator   │
-                    │    (Optional)    │
-                    └────────┬─────────┘
-                             │
-         ┌───────────────────┼───────────────────┐
-         │                   │                   │
-    ┌────▼────┐        ┌────▼────┐        ┌────▼────┐
-    │ Region  │        │ Region  │        │ Region  │
-    │  West   │◄──────►│ Central │◄──────►│  East   │
-    └────┬────┘        └────┬────┘        └────┬────┘
-         │                  │                  │
-    ┌────┴────┐        ┌────┴────┐        ┌────┴────┐
-    │  Nodes  │        │  Nodes  │        │  Nodes  │
-    └─────────┘        └─────────┘        └─────────┘
-```
-
-### Security Model
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     Your Node                               │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │                  IP Gateway                          │   │
-│  │  • Allowlist / Blocklist                            │   │
-│  │  • Rate limiting                                    │   │
-│  │  • Geographic restrictions                          │   │
-│  └─────────────────────┬───────────────────────────────┘   │
-│                        │                                    │
-│  ┌─────────────────────▼───────────────────────────────┐   │
-│  │              Authentication Layer                    │   │
-│  │  • mTLS certificates                                │   │
-│  │  • Node identity verification                       │   │
-│  │  • Task signing                                     │   │
-│  └─────────────────────┬───────────────────────────────┘   │
-│                        │                                    │
-│  ┌─────────────────────▼───────────────────────────────┐   │
-│  │              Sandboxed Runtime                       │   │
-│  │  • Container isolation (gVisor/Firecracker)         │   │
-│  │  • Resource limits (CPU, memory, GPU)               │   │
-│  │  • No host filesystem access                        │   │
-│  │  • Network egress controls                          │   │
-│  └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
-```
-
-## Configuration
-
-### Basic Configuration (`~/.node-group-ai/config.yaml`)
-
-```yaml
-node:
-  name: "my-gpu-node"
-  region: "us-west"
-
-gpu:
-  devices: auto          # or [0, 1] for specific GPUs
-  max_utilization: 80    # reserve 20% for local tasks
-
-access:
-  mode: allowlist        # allowlist | blocklist | public
-  allowed_ips:
-    - 192.168.1.0/24
-    - 10.0.0.0/8
-
-resources:
-  max_concurrent_tasks: 4
-  memory_limit: 64GB
-
-credits:
-  earn_rate: 1.0         # multiplier for contributions
-  spend_limit: 1000      # daily credit cap
-```
-
-### Advanced: Task Policies
-
-```yaml
-policies:
-  # What tasks you'll accept
-  accept:
-    - type: inference
-      models: ["llama-*", "mistral-*", "qwen-*"]
-    - type: training
-      max_duration: 1h
-    - type: embedding
-
-  # What you won't run
-  reject:
-    - type: crypto_mining
-    - type: password_cracking
-    - untrusted_containers: true
-```
-
-## API Usage
-
-### Submit a task to the network
+## Quick API Example
 
 ```python
 from node_group_ai import Client
 
-client = Client()
+client = Client()  # Uses your node credentials
 
 # Run inference across the mesh
 response = client.inference(
     model="llama-3.3-70b",
-    prompt="Explain distributed computing",
-    parallelism="auto"  # spreads across available nodes
+    messages=[{"role": "user", "content": "Explain quantum computing"}]
 )
+print(response.choices[0].message.content)
 
-# Execute arbitrary compute
-result = client.compute(
-    container="python:3.12",
-    command="python train.py --epochs 100",
-    gpu_count=4,
-    timeout="2h"
-)
+# Check your credits
+print(f"Balance: {client.credits.balance()} credits")
 ```
 
-### Monitor your node
-
-```python
-from node_group_ai import NodeStatus
-
-status = NodeStatus.local()
-print(f"GPU Utilization: {status.gpu_util}%")
-print(f"Tasks completed: {status.tasks_completed}")
-print(f"Credits earned: {status.credits_earned}")
-print(f"Connected peers: {status.peer_count}")
-```
-
-## Economics
-
-### Credit System
+## Credit Economy
 
 | Action | Credits |
 |--------|---------|
-| Contribute 1 GPU-hour | +10 credits |
-| Run inference (per 1K tokens) | -1 credit |
-| Run training (per GPU-hour) | -10 credits |
-| Orchestrator bonus | +2 credits/hour |
+| Contribute 1 GPU-hour | +10 |
+| Run inference (1K tokens) | -1 |
+| Run training (1 GPU-hour) | -10 |
+| Priority boost | -1 to -100 |
 
-### Fair Scheduling
+No hardware? Purchase credit packages starting at $10.
 
-The network uses a weighted fair-queue scheduler:
-- Higher contributors get priority
-- Idle resources are offered to anyone
-- Emergency tasks can bid for priority
+## Documentation
+
+| Doc | Description |
+|-----|-------------|
+| [Architecture Overview](docs/01-architecture-overview.md) | System design and components |
+| [Scale-Out Architecture](docs/02-scale-out-architecture.md) | How we scale to 10M+ nodes |
+| [Form Wizard Onboarding](docs/03-form-wizard-onboarding.md) | How the join flow works |
+| [Node Discovery](docs/04-node-discovery.md) | DHT and gossip protocols |
+| [Task Routing](docs/05-task-routing.md) | How tasks find nodes |
+| [Credit Economy](docs/06-credit-economy.md) | Earning and spending credits |
+| [Security Model](docs/07-security-model.md) | mTLS, sandboxing, access control |
+| [API Reference](docs/08-api-reference.md) | Complete API documentation |
+| [Distributed Inference](docs/09-distributed-inference.md) | How frontier models work across nodes |
+| [Granular Participation](docs/10-granular-participation.md) | How 1GB-8GB nodes contribute to 70B models |
+| [Streaming Inference](docs/11-streaming-inference.md) | Torrent-style weight streaming for any node |
+| [Collective Intelligence](docs/12-collective-intelligence.md) | How the network learns and grows |
+
+## Node Types
+
+| Type | Description | Requirements |
+|------|-------------|--------------|
+| **Contributor** | Share GPU, earn credits | Any CUDA GPU |
+| **Consumer** | Use AI, spend credits | Network only |
+| **Hybrid** | Both (default) | Any CUDA GPU |
+| **SuperNode** | Help coordinate network | High uptime, 8+ cores |
+
+## Security
+
+Your node, your rules:
+
+```yaml
+# ~/.node-group-ai/access.yaml
+access:
+  mode: allowlist
+  allowed_ips:
+    - 192.168.1.0/24  # Your LAN
+    - 10.0.0.0/8       # Your VPN
+```
+
+- **IP gating** — Control who accesses your GPU
+- **mTLS** — All traffic encrypted and authenticated
+- **Sandboxed execution** — Tasks run in isolated containers
+- **Audit logs** — Full visibility into what runs on your hardware
 
 ## Roadmap
 
 - [x] Core mesh networking
 - [x] GPU resource sharing
-- [x] Basic security gates
-- [ ] Credit economy (Q1)
-- [ ] Model marketplace (Q2)
-- [ ] Training job orchestration (Q2)
-- [ ] Mobile node support (Q3)
-- [ ] Hardware attestation (Q3)
+- [x] Form wizard onboarding
+- [x] Pre-configured AI templates
+- [x] Landing page (site/)
+- [ ] Broker/coordination service
+- [ ] Credit marketplace
+- [ ] Model marketplace
+- [ ] Mobile companion app
+- [ ] Hardware attestation
+
+## Website
+
+The `site/` directory contains a GitHub Pages landing page. To enable:
+
+1. Go to repo Settings → Pages
+2. Set Source to "Deploy from a branch"
+3. Select branch `main` and folder `/site`
+4. Save
+
+**Note**: The broker service should be built first before activating the public site.
 
 ## Contributing
 
-We welcome contributions. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
 ```bash
-# Clone and set up dev environment
 git clone https://github.com/AlbrightLaboratories/node-group-AI.git
 cd node-group-AI
 make dev-setup
 make test
 ```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
@@ -276,3 +198,5 @@ Apache 2.0 — see [LICENSE](LICENSE).
 ---
 
 **Join the mesh. Pool your power. Build the future of distributed AI.**
+
+[join.node-group.ai](https://join.node-group.ai)

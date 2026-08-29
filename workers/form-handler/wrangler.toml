@@ -1,0 +1,13 @@
+name = "node-group-ai-form-handler"
+main = "src/index.ts"
+compatibility_date = "2024-08-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ALLOWED_ORIGIN = "https://albrightlaboratories.github.io"
+RATE_LIMIT_MAX = 5
+RATE_LIMIT_WINDOW_SECONDS = 60
+
+# Upstash Redis credentials - set via wrangler secret
+# UPSTASH_REDIS_REST_URL
+# UPSTASH_REDIS_REST_TOKEN

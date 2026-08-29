@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node-group-AI | Decentralized GPU Network</title>
+    <meta name="description" content="Pool your GPU with millions of others. Run frontier AI models together. The swarm IS the model.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">&#9651;</span>
+                node-group-AI
+            </a>
+            <div class="nav-links">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#participate">Participate</a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/tree/main/docs" target="_blank">Docs</a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge">Coming Soon</div>
+            <h1>The AI network that <span class="gradient-text">runs on everyone</span></h1>
+            <p class="hero-subtitle">
+                Pool your GPU with millions of others. Run 70B+ parameter models together.
+                <br>No single node has everything. Every node has something. Together: unlimited scale.
+            </p>
+            <div class="hero-cta">
+                <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
+                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">70B+</span>
+                    <span class="stat-label">Parameters</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">100MB</span>
+                    <span class="stat-label">Min Contribution</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">10M+</span>
+                    <span class="stat-label">Node Target</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="network-animation">
+                <div class="node node-1"></div>
+                <div class="node node-2"></div>
+                <div class="node node-3"></div>
+                <div class="node node-4"></div>
+                <div class="node node-5"></div>
+                <div class="node node-6"></div>
+                <div class="node node-center"></div>
+                <svg class="connections" viewBox="0 0 400 400">
+                    <line class="connection" x1="200" y1="200" x2="80" y2="100"/>
+                    <line class="connection" x1="200" y1="200" x2="320" y2="100"/>
+                    <line class="connection" x1="200" y1="200" x2="50" y2="250"/>
+                    <line class="connection" x1="200" y1="200" x2="350" y2="250"/>
+                    <line class="connection" x1="200" y1="200" x2="120" y2="350"/>
+                    <line class="connection" x1="200" y1="200" x2="280" y2="350"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <section class="insight-section">
+        <div class="container">
+            <div class="insight-card">
+                <div class="insight-icon">&#128161;</div>
+                <h2>The Key Insight</h2>
+                <p class="insight-main">The model doesn't need to exist anywhere.<br><strong>The swarm IS the model.</strong></p>
+                <div class="insight-comparison">
+                    <div class="comparison-item">
+                        <span class="comparison-label">BitTorrent</span>
+                        <span class="comparison-text">No one has the whole file. Everyone has pieces. The swarm IS the file.</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Netflix</span>
+                        <span class="comparison-text">You don't download the movie. You stream what you need, when you need it.</span>
+                    </div>
+                    <div class="comparison-item highlight">
+                        <span class="comparison-label">node-group-AI</span>
+                        <span class="comparison-text">Stream model weights layer by layer. 100MB of RAM can run a 70B model.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-section">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Inference flows through the network like a stream</p>
+
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="flow-number">1</div>
+                    <div class="flow-content">
+                        <h3>Request Arrives</h3>
+                        <p>User asks: "Explain quantum computing"</p>
+                    </div>
+                </div>
+                <div class="flow-arrow">&#8594;</div>
+                <div class="flow-step">
+                    <div class="flow-number">2</div>
+                    <div class="flow-content">
+                        <h3>Stream Layer 0</h3>
+                        <p>Fetch weight pieces from 10+ peers in parallel</p>
+                    </div>
+                </div>
+                <div class="flow-arrow">&#8594;</div>
+                <div class="flow-step">
+                    <div class="flow-number">3</div>
+                    <div class="flow-content">
+                        <h3>Compute & Prefetch</h3>
+                        <p>Process layer 0 while streaming layer 1</p>
+                    </div>
+                </div>
+                <div class="flow-arrow">&#8594;</div>
+                <div class="flow-step">
+                    <div class="flow-number">4</div>
+                    <div class="flow-content">
+                        <h3>Repeat 80x</h3>
+                        <p>Each layer streams, computes, evicts</p>
+                    </div>
+                </div>
+                <div class="flow-arrow">&#8594;</div>
+                <div class="flow-step">
+                    <div class="flow-number">5</div>
+                    <div class="flow-content">
+                        <h3>Token Generated</h3>
+                        <p>Full 70B quality, distributed compute</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-details">
+                <div class="tech-card">
+                    <div class="tech-icon">&#9681;</div>
+                    <h4>Layer Streaming</h4>
+                    <p>Only one layer needed in memory at a time. Stream weights like Netflix streams video frames.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">&#8644;</div>
+                    <h4>Parallel Fetch</h4>
+                    <p>Pull pieces from multiple peers simultaneously. 10 peers at 100Mbps = 1Gbps aggregate.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">&#9878;</div>
+                    <h4>Adaptive Precision</h4>
+                    <p>Like adaptive video quality. Fast connection? Full precision. Slow? Lower bitrate weights.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">&#10003;</div>
+                    <h4>Piece Verification</h4>
+                    <p>Every piece cryptographically signed. Bad data? Blacklist source, re-fetch from another.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="participate" class="participate-section">
+        <div class="container">
+            <h2 class="section-title">Everyone Can Participate</h2>
+            <p class="section-subtitle">From 100MB to 80GB, every contribution matters</p>
+
+            <div class="tiers">
+                <div class="tier">
+                    <div class="tier-header">
+                        <span class="tier-size">100MB</span>
+                        <span class="tier-name">Micro Node</span>
+                    </div>
+                    <div class="tier-body">
+                        <p>Store 100 weight pieces. Serve them when requested. Help run 70B inference.</p>
+                        <ul>
+                            <li>Any device with storage</li>
+                            <li>Earn credits for serving</li>
+                            <li>1/350th of the model</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tier">
+                    <div class="tier-header">
+                        <span class="tier-size">1GB</span>
+                        <span class="tier-name">Storage Node</span>
+                    </div>
+                    <div class="tier-body">
+                        <p>Store 1000 pieces. That's 11% of a 70B model. Real contribution.</p>
+                        <ul>
+                            <li>Laptop, desktop, server</li>
+                            <li>Store + serve pieces</li>
+                            <li>Optional: micro-compute</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tier featured">
+                    <div class="tier-badge">Most Common</div>
+                    <div class="tier-header">
+                        <span class="tier-size">8GB</span>
+                        <span class="tier-name">Compute Node</span>
+                    </div>
+                    <div class="tier-body">
+                        <p>Full layer compute. Stream weights, process, return results. Real GPU work.</p>
+                        <ul>
+                            <li>Gaming PC, workstation</li>
+                            <li>GTX 1060+, RTX series</li>
+                            <li>Earn compute credits</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tier">
+                    <div class="tier-header">
+                        <span class="tier-size">48GB+</span>
+                        <span class="tier-name">Full Node</span>
+                    </div>
+                    <div class="tier-body">
+                        <p>Host complete models. Lowest latency inference. SuperNode eligible.</p>
+                        <ul>
+                            <li>A100, H100, multi-GPU</li>
+                            <li>No streaming needed</li>
+                            <li>Highest credit earning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="participate-cta">
+                <p>Don't have a GPU? <strong>That's fine.</strong> Storage nodes are just as important.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="architecture-section">
+        <div class="container">
+            <h2 class="section-title">Built for Scale</h2>
+            <p class="section-subtitle">Hierarchical topology supports 10 million+ nodes</p>
+
+            <div class="arch-visual">
+                <pre class="arch-diagram">
+                         ┌─────────────────┐
+                         │  Global Router  │  Anycast DNS
+                         │   (Stateless)   │
+                         └────────┬────────┘
+                                  │
+        ┌─────────────────────────┼─────────────────────────┐
+        │                         │                         │
+   ┌────▼────┐              ┌────▼────┐              ┌────▼────┐
+   │ Region  │              │ Region  │              │ Region  │
+   │  AMER   │              │  EMEA   │              │  APAC   │
+   └────┬────┘              └────┬────┘              └────┬────┘
+        │                        │                        │
+   ┌────┴────┐              ┌────┴────┐              ┌────┴────┐
+   │SuperNode│              │SuperNode│              │SuperNode│
+   │ Cluster │              │ Cluster │              │ Cluster │
+   └────┬────┘              └────┬────┘              └────┬────┘
+        │                        │                        │
+   ┌────┴────┐              ┌────┴────┐              ┌────┴────┐
+   │  Leaf   │              │  Leaf   │              │  Leaf   │
+   │  Nodes  │              │  Nodes  │              │  Nodes  │
+   └─────────┘              └─────────┘              └─────────┘
+                </pre>
+            </div>
+
+            <div class="arch-stats">
+                <div class="arch-stat">
+                    <span class="arch-value">30M</span>
+                    <span class="arch-label">Connections (not 50 trillion)</span>
+                </div>
+                <div class="arch-stat">
+                    <span class="arch-value">14</span>
+                    <span class="arch-label">Max DHT hops</span>
+                </div>
+                <div class="arch-stat">
+                    <span class="arch-value">O(log n)</span>
+                    <span class="arch-label">Lookup complexity</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="waitlist" class="waitlist-section">
+        <div class="container">
+            <div class="waitlist-card">
+                <h2>Join the Waitlist</h2>
+                <p>Be among the first to connect your hardware to the collective.</p>
+
+                <form class="waitlist-form" id="waitlist-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hardware">Hardware Type</label>
+                        <select id="hardware" name="hardware" required>
+                            <option value="">Select your hardware</option>
+                            <option value="consumer_gpu">Consumer GPU (RTX 3060-4090)</option>
+                            <option value="gaming_pc">Gaming PC</option>
+                            <option value="workstation">Professional Workstation</option>
+                            <option value="server">Dedicated Server</option>
+                            <option value="data_center">Data Center</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="storage">Storage Commitment: <span id="storage-value">50</span> GB</label>
+                        <input type="range" id="storage" name="storage_commitment_gb"
+                               min="1" max="1024" value="50" class="storage-slider">
+                        <div class="slider-labels">
+                            <span>1 GB</span>
+                            <span>512 GB</span>
+                            <span>1 TB</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        Join Waitlist
+                    </button>
+                </form>
+
+                <div id="form-result" class="form-result hidden">
+                    <div class="result-success hidden">
+                        <div class="result-icon">&#10003;</div>
+                        <h3>Welcome to the network!</h3>
+                        <p class="result-message"></p>
+                    </div>
+
+                    <div class="valuation-reveal hidden">
+                        <div class="valuation-label">Current Network Value</div>
+                        <div class="valuation-amount"></div>
+                        <p class="valuation-note">Based on committed resources from all contributors</p>
+                    </div>
+
+                    <div class="valuation-hidden hidden">
+                        <p class="valuation-teaser">Commit 50GB+ to see network value</p>
+                    </div>
+
+                    <div class="result-error hidden">
+                        <div class="result-icon">&#10007;</div>
+                        <h3>Something went wrong</h3>
+                        <p class="error-message"></p>
+                    </div>
+                </div>
+
+                <p class="waitlist-note">
+                    <a href="https://github.com/AlbrightLaboratories/node-group-AI" target="_blank">Star the repo</a> to follow progress.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="docs-section">
+        <div class="container">
+            <h2 class="section-title">Deep Dive</h2>
+            <p class="section-subtitle">Read the technical documentation</p>
+
+            <div class="docs-grid">
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/01-architecture-overview.md" class="doc-link" target="_blank">
+                    <span class="doc-number">01</span>
+                    <span class="doc-title">Architecture Overview</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/02-scale-out-architecture.md" class="doc-link" target="_blank">
+                    <span class="doc-number">02</span>
+                    <span class="doc-title">Scale-Out Architecture</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/03-form-wizard-onboarding.md" class="doc-link" target="_blank">
+                    <span class="doc-number">03</span>
+                    <span class="doc-title">Form Wizard Onboarding</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/04-node-discovery.md" class="doc-link" target="_blank">
+                    <span class="doc-number">04</span>
+                    <span class="doc-title">Node Discovery (DHT)</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/05-task-routing.md" class="doc-link" target="_blank">
+                    <span class="doc-number">05</span>
+                    <span class="doc-title">Task Routing</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/06-credit-economy.md" class="doc-link" target="_blank">
+                    <span class="doc-number">06</span>
+                    <span class="doc-title">Credit Economy</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/07-security-model.md" class="doc-link" target="_blank">
+                    <span class="doc-number">07</span>
+                    <span class="doc-title">Security Model</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/08-api-reference.md" class="doc-link" target="_blank">
+                    <span class="doc-number">08</span>
+                    <span class="doc-title">API Reference</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/09-distributed-inference.md" class="doc-link" target="_blank">
+                    <span class="doc-number">09</span>
+                    <span class="doc-title">Distributed Inference</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/10-granular-participation.md" class="doc-link" target="_blank">
+                    <span class="doc-number">10</span>
+                    <span class="doc-title">Granular Participation</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/11-streaming-inference.md" class="doc-link" target="_blank">
+                    <span class="doc-number">11</span>
+                    <span class="doc-title">Streaming Inference</span>
+                </a>
+                <a href="https://github.com/AlbrightLaboratories/node-group-AI/blob/main/docs/12-collective-intelligence.md" class="doc-link" target="_blank">
+                    <span class="doc-number">12</span>
+                    <span class="doc-title">Collective Intelligence</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">&#9651;</span>
+                    <span>node-group-AI</span>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/AlbrightLaboratories/node-group-AI" target="_blank">GitHub</a>
+                    <a href="https://github.com/AlbrightLaboratories/node-group-AI/tree/main/docs" target="_blank">Documentation</a>
+                    <a href="https://github.com/AlbrightLaboratories" target="_blank">Albright Laboratories</a>
+                </div>
+                <div class="footer-copy">
+                    <p>Apache 2.0 License</p>
+                    <p>The swarm IS the model.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
