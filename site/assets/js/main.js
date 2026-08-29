@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form handling - submits to Cloudflare Worker
     const form = document.getElementById('waitlist-form');
     const formResult = document.getElementById('form-result');
-    const API_ENDPOINT = 'https://node-group-ai-form-handler.albright-labs.workers.dev';
+    const API_ENDPOINT = 'https://node-group-ai-form-handler.hawaiideveloper.workers.dev';
 
     if (form) {
         form.addEventListener('submit', async (e) => {
