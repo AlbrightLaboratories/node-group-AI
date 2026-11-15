@@ -77,7 +77,7 @@ Mixture of Experts models activate only 2-4 experts per token, enabling true dis
 **Supported Models**:
 - Mixtral 8x7B, 8x22B
 - DeepSeek-V2, V3
-- Qwen2-MoE
+- Qwen3-MoE
 - Grok-1
 
 ```
